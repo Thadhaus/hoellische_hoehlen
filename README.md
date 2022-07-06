@@ -1,4 +1,4 @@
-# hoellische_hoehlen
+# Höllische Höhlen
 Erkunde die Höhlen! - Explore the caves!
 
 This is a fun textadventure to demonstrate a generated world
