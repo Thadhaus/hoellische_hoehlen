@@ -102,7 +102,6 @@ def generate_graphviz_file():
   import generiere_karte
   os.system("mkdir -p Hoelle-Karten")
   result = glob.glob(r"Hoelle-Karten/*.py")
-  print(result)
   if len(result) >  0:
     print(f"Welche Datei soll in einen Graphen umgewandelt werden?")
     for i in range(len(result)):
