@@ -137,7 +137,7 @@ def verbindungen_erzeugen():
         for richtung in east, west, north, south, upstairs, downstairs, teleport:
             richtung[raum] = generiere_ziel()
     #'''
-    # das folgende läuft gut unter Linux...
+    # das folgende läuft gut unter Linux auch im repl.it ...
     # Ab hier dann für jedes Level einmal rausschreiben, wie es aussieht.
     # Diese Dateien kann man dann mit `generiere_karte.py` umwandeln
     import os
