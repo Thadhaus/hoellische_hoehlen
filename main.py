@@ -96,10 +96,29 @@ def usage():
             print ("{} ".format(wort),end="")
     print ("\n\n\tViel Spaß\n")
 
-# Where can I go from each direction?
+def generate_graphviz_file():
+  import os
+  import glob
+  import generiere_karte
+  os.system("mkdir -p Hoelle-Karten")
+  result = glob.glob(r"Hoelle-Karten/*.py")
+  print(result)
+  if len(result) >  0:
+    print(f"Welche Datei soll in einen Graphen umgewandelt werden?")
+    for i in range(len(result)):
+      print(f"{i+1} : {result[i]}")
+    num = int(input("Gib mir die Nummer deiner Wunschdatei: "))
+    wunschdatei = result[num-1]
+    generiere_karte.hauptprogramm(wunschdatei)
+    antwort = input(f"Die Datei {wunschdatei} jetzt löschen?").lower()
+    if antwort in ['y','j','yes','ja']:
+      os.system(f"rm -f {wunschdatei}")
+    
+
+    # Where can I go from each direction?
 allowed_directions = ["quit", "w", "a", "s", "d", "up", "down",
     "go north", "go south", "go east", "go west", "tp",
-    "go up", "go down", "look", "take", "pray"]
+    "go up", "go down", "look", "take", "pray", "map"]
 
 # Zufällig generierte Höhlen in fast beliebiger Zahl und Menge
 # Begrenzend ist die Zahl der nutzbaren Zeichen, aber man darf
@@ -215,6 +234,8 @@ while( current_room is not None ):
     # Wenn sonst nichts geht, kann man beten und bekommt neue Verbindungen.
     elif command == "pray":
         pray()
+    elif command == 'map':
+        generate_graphviz_file()
     # Look up whether a path that way exists and if so, go to that room
     elif compass[command][current_room] is not None:
         # Wenn man einen Raum nicht betreten kann oder darf,
