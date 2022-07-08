@@ -90,7 +90,7 @@ def usage():
     print ("\tFolgende Kommandowörter sind dem System bekannt:\n\n\t",end="")
     for wort in allowed_directions:
         # Mache 'tp' (Teleport) zu einem geheimen Kommando
-        if wort == "tp":
+        if wort == "tp" or wort == 'teleport':
             pass
         else:
             print ("{} ".format(wort),end="")
@@ -116,7 +116,7 @@ def generate_graphviz_file():
 
     # Where can I go from each direction?
 allowed_directions = ["quit", "w", "a", "s", "d", "up", "down",
-    "go north", "go south", "go east", "go west", "tp",
+    "go north", "go south", "go east", "go west", "tp", 'teleport',
     "go up", "go down", "look", "take", "pray", "map"]
 
 # Zufällig generierte Höhlen in fast beliebiger Zahl und Menge
@@ -177,7 +177,7 @@ verbindungen_erzeugen()
 # Put the directions into a compass dictionary
 compass = { "w": north, "a": west, "s": south, "d": east, "up": upstairs, "down": downstairs,
         "go north": north, "go south": south, "go east": east, "go west": west,
-        "go up": upstairs, "go down": downstairs, "tp": teleport }
+        "go up": upstairs, "go down": downstairs, "tp": teleport, "teleport": teleport }
 
 import metagenerator as generator
 raumbeschreibung, rauminhalt, raumbiome = generator.hauptprogramm(raumliste)
