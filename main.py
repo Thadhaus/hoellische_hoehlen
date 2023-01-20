@@ -226,7 +226,7 @@ while( current_room is not None ):
         quit()      #   das Spiel freiwillig aufgeben :-/
         current_room = None
     elif command == "look":
-        zeige_rauminhalt()w
+        zeige_rauminhalt()
     elif command == "take":
         if ( take(current_room) ):
             current_room = None     # you managed to die :-)
