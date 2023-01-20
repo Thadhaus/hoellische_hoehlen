@@ -28,7 +28,7 @@ def take(raum):
     ding = input("Was möchtest du nehmen? ").lower().rstrip()
     anzahl,zeug = rauminhalt[raum].split(' ',1)
     if ding == zeug:
-        print ("Jedes der {} {} ist zu schwer zum Mitnehmen".format(anzahl,zeug))
+        print (f"Jedes der {anzahl} {zeug} ist zu schwer zum Mitnehmen")
         gefunden = True
         ''' man sollte etwas essen können '''
         if zeug == 'lichen' and int(anzahl) > 0:
@@ -226,8 +226,8 @@ while( current_room is not None ):
         quit()      #   das Spiel freiwillig aufgeben :-/
         current_room = None
     elif command == "look":
-        zeige_rauminhalt()
-    elif ( command == "take" ):
+        zeige_rauminhalt()w
+    elif command == "take":
         if ( take(current_room) ):
             current_room = None     # you managed to die :-)
     # Wenn sonst nichts geht, kann man beten und bekommt neue Verbindungen.
